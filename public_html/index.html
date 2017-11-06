@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>jQuery Plugins: Alertify</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/alertify.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/alertify.core.css">
+        <link rel="stylesheet" href="css/alertify.default.css">
+
+        <script>
+            $(document).ready(function () {
+                $("#simple_alert").click(function () {
+                    alertify.alert("Mensagem de alerta!");
+                });
+                $("#simple_confirm").click(function () {
+                    alertify.confirm("Confirmação", function (e) {
+                        if (e) {
+                            alertify.alert("Confirmação aceita!");
+                        } else {
+                            alertify.alert("Confirmação não aceita!");
+                        }
+                    });
+                });
+                $("#simple_prompt").click(function () {
+                    alertify.prompt("Escreva seu nome", function (e, str) {
+                        if (e) {
+                            alertify.alert(str);
+                        } else {
+                            alertify.alert("Não há nada escrito");
+                        }
+                    });
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <a href="#" class="btn btn-primary" id="simple_alert">Alerta Simples</a>
+            <a href="#" class="btn btn-primary" id="simple_confirm">Confirmação</a>
+            <a href="#" class="btn btn-primary" id="simple_prompt">Prompt</a>
+        </div>
+    </body>
+</html>
